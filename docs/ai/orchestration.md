@@ -46,12 +46,14 @@ Use these starting defaults for the development assignments in the [role guide](
 | Assignment | Model | Reasoning effort | Rationale |
 | --- | --- | --- | --- |
 | Quick Implementer, Researcher, Documentation Reviewer, Verifier | `gpt-6-luna` | `max` | Bounded work with explicit criteria, source checks, or reproducible acceptance checks. |
-| Implementer, Correctness Reviewer, Test Reviewer, Performance Reviewer, Orchestrator | `gpt-6.1-sol` | `high` | Design judgment, interacting changes, and independent technical assessment. |
-| Advanced Implementer, Security Reviewer | `gpt-6.1-sol` | `max` | Deep contract reasoning or consequential trust and recovery boundaries. |
+| Implementer, Correctness Reviewer, Test Reviewer, Performance Reviewer, Orchestrator | `gpt-6.2-sol` | `high` | Design judgment, interacting changes, and independent technical assessment. |
+| Advanced Implementer, Security Reviewer | `gpt-6.2-sol` | `max` | Deep contract reasoning or consequential trust and recovery boundaries. |
 
 Luna is a normal first choice for suitable assignments, not only a fallback when Sol is unavailable. Role names are not ceilings: promote a nominally simple assignment to Sol or increase effort before dispatch when ambiguity, sensitive boundaries, or expensive failure warrants it. Conversely, a well-defined routine task may use a lower supported effort when its acceptance checks make that sufficient. Record the selection and any departure from the role default in the task contract. Keep reviewers independent of their author regardless of model choice.
 
-Do not select `gpt-6-astra` or the older `gpt-6-sol` for this development profile. If the intended model or effort is unavailable, explicitly choose another permitted, supported pair before dispatch only when the user's task allows it; otherwise report the limitation. Never silently substitute a default.
+Reserve `gpt-6.2-astra` for one explicitly opted-in assignment at a time: a difficult design decision with material trade-offs, or a focused analysis of a hard, well-defined problem. Before starting, record the specific question, why Sol is insufficient for it, the model and effort, and the stopping condition. In Codex, select the model for a dedicated session and return to the standard model for follow-on work. Keep Astra out of role defaults, unattended dispatch and fallback lists.
+
+Keep `gpt-6-astra` and `gpt-6-sol` outside this development profile. If the intended model or effort is unavailable, explicitly choose another permitted, supported pair before dispatch only when the user's task allows it. Otherwise report the limitation. Never silently substitute a default.
 
 Check the current executor's actual model/tool support and the selected model's advertised reasoning efforts. Use raw supported identifiers; do not invent aliases or map unsupported effort values implicitly. A configuration, cached model list, or requested setting is not proof of the model that executed. Pass explicit settings through a supported spawn interface or fail closed; do not silently drop them or substitute a model. Record observed model metadata separately when available.
 
